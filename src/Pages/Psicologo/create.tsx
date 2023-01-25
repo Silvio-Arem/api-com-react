@@ -6,6 +6,10 @@ export default function PsicologoCreate() {
     const [email, setEmail] = useState<string>("");
     const [senha, setSenha] = useState<string>("");
 
+    const cadastro =async (event) => {
+        event.preventDefault();
+    }
+
     return (
         <main className="container card my-5 p-5">
             <h1>Cadastro de Psicologo</h1>
