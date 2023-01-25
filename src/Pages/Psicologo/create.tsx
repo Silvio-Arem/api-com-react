@@ -24,7 +24,7 @@ export default function PsicologoCreate() {
                     <textarea
                         className="form-control"
                         value={apresentacao}
-                        onChange={(event) => setNome(event.target.value)}
+                        onChange={(event) => setApresentacao(event.target.value)}
                     ></textarea>
                 </div>
                 <div className="mb-3">
@@ -33,7 +33,7 @@ export default function PsicologoCreate() {
                         type="email"
                         className="form-control"
                         value={email}
-                        onChange={(event) => setNome(event.target.value)}
+                        onChange={(event) => setEmail(event.target.value)}
                     />
                 </div>
                 <div className="mb-3">
@@ -42,7 +42,7 @@ export default function PsicologoCreate() {
                         type="password"
                         className="form-control"
                         value={senha}
-                        onChange={(event) => setNome(event.target.value)}
+                        onChange={(event) => setSenha(event.target.value)}
                     />
                 </div>
 
