@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { cadastroPsicologo } from "../../services/MainApi/psicologos";
 
 export default function PsicologoCreate() {
     const [nome, setNome] = useState<string>("");
@@ -6,14 +7,32 @@ export default function PsicologoCreate() {
     const [email, setEmail] = useState<string>("");
     const [senha, setSenha] = useState<string>("");
 
-    const cadastro =async (event) => {
+    const cadastro = async (event: FormEvent) => {
         event.preventDefault();
-    }
+
+        const payload = {
+            nome,
+            apresentacao,
+            email,
+            senha,
+        };
+
+        try {
+            const response = await cadastroPsicologo(payload);
+            if(response.status !== 201) {
+                return alert("Deu algo errado");
+            }
+
+            alert("Cadastro efetuado com sucesso!");
+        } catch (error) {
+            alert("Deu algo errado");
+        }
+    };
 
     return (
         <main className="container card my-5 p-5">
             <h1>Cadastro de Psicologo</h1>
-            <form action="">
+            <form onSubmit={cadastro}>
                 <div className="mb-3">
                     <label className="form-label">Nome</label>
                     <input
@@ -50,7 +69,7 @@ export default function PsicologoCreate() {
                     />
                 </div>
 
-                <button className="btn btn-primary">Cadastrar</button>
+                <button type="submit" className="btn btn-primary">Cadastrar</button>
             </form>
         </main>
     )

@@ -8,9 +8,9 @@ interface PsicologoPayload {
 }
 
 export function cadastroPsicologo(payload: PsicologoPayload) {
-    return baseApi.post("/psicologo", payload);
+    return baseApi.post("/psicologos", payload);
 }
 
 export function listarPsicologo() {
-    return baseApi.get("/psicologo");
+    return baseApi.get("/psicologos");
 }
