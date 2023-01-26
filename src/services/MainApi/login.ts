@@ -5,6 +5,6 @@ interface LoginPayload {
     senha: string;
 }
 
-export function Login(payload: LoginPayload) {
+export function login(payload: LoginPayload) {
     return baseApi.post("/login", payload);
 }
