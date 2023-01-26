@@ -20,7 +20,7 @@ export default function Login(): JSX.Element {
     return (
         <main className="container card my-5 p-5">
             <h1>Login Psicologo</h1>
-            <form>
+            <form onSubmit={submit}>
                 <div className="mb-3">
                     <label className="form-label">Email</label>
                     <input
