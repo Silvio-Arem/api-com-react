@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { listarPsicologo } from "../../services/MainApi/psicologos";
+import { useSelector } from "react-redux"
 
-interface Psicologo{
+import { listarPsicologo } from "../../services/MainApi/psicologos";
+import { RootStore } from "../../store";
+
+interface Psicologo {
     nome: string;
     apresentacao: string;
     email: string;
@@ -10,6 +13,7 @@ interface Psicologo{
 
 export default function PsicologoList() {
     const [psicologos, setPsicologos] = useState<Psicologo[]>([]);
+    const user = useSelector((store: RootStore)=> store.userReduce);
     useEffect(() => {
         const getData = async () => {
             try {
@@ -26,6 +30,7 @@ export default function PsicologoList() {
     return (
         <main className="container card my-5 p-5">
             <h1>Lista de Psicologo</h1>
+            <h1>O email do usuario logado é: {user.email}</h1>
             <ul className="list-group">
                 {psicologos.map(psicologo => (
                     <li className="list-group-item">{psicologo.nome}</li>
