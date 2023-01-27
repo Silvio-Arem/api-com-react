@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface UserState {
     token?: string,
@@ -12,6 +12,24 @@ const userReduce = createSlice({
         isLogged: false,
     } as UserState,
     reducers: {
-        
-    }
+        setUser(state, action) {
+            Object.assign(state, {
+                token: action.payload.token,
+                email: action.payload.email,
+                isLogged: true,
+            });
+        },
+
+        removeUser(state, action) {
+            Object.assign(state, {
+                token: undefined,
+                email: undefined,
+                isLogged: false,
+            });
+        },
+    },
 });
+
+export const {setUser, removeUser} = userReduce.actions;
+
+export default userReduce.reducer;
