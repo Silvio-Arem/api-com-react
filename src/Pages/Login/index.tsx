@@ -1,10 +1,13 @@
 import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../services/MainApi/login";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../store/modules/user";
 
 export default function Login(): JSX.Element {
     const [email, setEmail] = useState<string>("");
     const [senha, setSenha] = useState<string>("");
+    const dispatch = useDispatch();
 
     const submit = async (event: FormEvent) => {
         event.preventDefault();
@@ -12,6 +15,12 @@ export default function Login(): JSX.Element {
         try {
             const response = await login({ email, senha });
             console.log(response.data);
+
+            dispatch(
+                setUser({
+                    token: response.data,
+                    email,
+                }))
             alert("Deu certo");
         } catch (error) {
             alert("Deu algo errado");
