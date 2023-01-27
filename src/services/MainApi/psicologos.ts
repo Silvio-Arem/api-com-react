@@ -11,6 +11,10 @@ export function cadastroPsicologo(payload: PsicologoPayload) {
     return baseApi.post("/psicologos", payload);
 }
 
-export function listarPsicologo() {
-    return baseApi.get("/psicologos");
+export function listarPsicologo(token: string) {
+    return baseApi.get("/psicologos", {
+        headers: {
+            Authorization: `JWT ${token}`,
+        }
+    });
 }

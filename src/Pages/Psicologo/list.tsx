@@ -17,7 +17,8 @@ export default function PsicologoList() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await listarPsicologo();
+                if (!user.isLogged || !user.token) return;
+                const response = await listarPsicologo(user.token);
 
                 setPsicologos(response.data);
             } catch (error) {
