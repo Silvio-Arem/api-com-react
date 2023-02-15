@@ -31,7 +31,6 @@ export default function PsicologoList() {
     return (
         <main className="container card my-5 p-5">
             <h1>Lista de Psicologo</h1>
-            <h1>O email do usuario logado é: {user.email}</h1>
             <ul className="list-group">
                 {psicologos.map(psicologo => (
                     <li className="list-group-item">{psicologo.nome}</li>

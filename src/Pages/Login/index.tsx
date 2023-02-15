@@ -30,8 +30,9 @@ export default function Login(): JSX.Element {
             <h1>Login Psicologo</h1>
             <form onSubmit={submit}>
                 <div className="mb-3">
-                    <label className="form-label">Email</label>
+                    <label htmlFor="email" className="form-label">Email</label>
                     <input
+                        id="email"
                         type="text"
                         className="form-control"
                         value={email}
@@ -39,8 +40,9 @@ export default function Login(): JSX.Element {
                     />
                 </div>
                 <div className="mb-3">
-                    <label className="form-label">Senha</label>
+                    <label htmlFor="password" className="form-label">Senha</label>
                     <input
+                        id="password"
                         type="password"
                         className="form-control"
                         value={senha}
