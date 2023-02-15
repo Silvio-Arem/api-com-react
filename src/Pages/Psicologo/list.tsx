@@ -27,7 +27,7 @@ export default function PsicologoList() {
         };
 
         getData();
-    }, [setPsicologos]);
+    }, [setPsicologos, user.isLogged, user.token]);
     return (
         <main className="container card my-5 p-5">
             <h1>Lista de Psicologo</h1>

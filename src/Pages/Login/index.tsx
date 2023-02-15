@@ -14,7 +14,6 @@ export default function Login(): JSX.Element {
 
         try {
             const response = await login({ email, senha });
-            console.log(response.data);
 
             dispatch(
                 setUser({
